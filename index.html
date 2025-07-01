@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CoucousHub</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+  }
+  #search {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1rem;
+  }
+  .site {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .site a {
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>CoucousHub</h1>
+<input type="text" id="search" placeholder="Search Coucous sites..." />
+
+<div id="sites">
+  <div class="site">
+    <a href="site1.zip" download>Download</a> — site1.conet
+  </div>
+  <div class="site">
+    <a href="coolapp.zip" download>Download</a> — coolapp.conet
+  </div>
+  <div class="site">
+    <a href="example.zip" download>Download</a> — example.conet
+  </div>
+  <!-- Add more sites here -->
+</div>
+
+<script>
+  const searchInput = document.getElementById('search');
+  const sites = document.querySelectorAll('.site');
+
+  searchInput.addEventListener('input', () => {
+    const filter = searchInput.value.toLowerCase();
+    sites.forEach(site => {
+      const text = site.textContent.toLowerCase();
+      site.style.display = text.includes(filter) ? 'block' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
